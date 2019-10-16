@@ -1,6 +1,6 @@
 .category-list {
   display: flex;
-  overflow-x:scroll;
+  overflow: auto;
   padding: 5px 0px;
 }
 

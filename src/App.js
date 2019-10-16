@@ -78,6 +78,7 @@ class App extends Component {
                 type="text"
                 className="search-bar"
                 onChange={this.onChange.bind(this)}
+                value={this.state.filter}
                 placeholder="Search by artist, gallery, style, theme, tag, etc."
               />
             </div>
