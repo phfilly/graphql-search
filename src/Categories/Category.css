@@ -1,0 +1,22 @@
+.category-list {
+  display: flex;
+  overflow-x:scroll;
+  padding: 5px 0px;
+}
+
+.category-list > div {
+  background: #eee;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 12px;
+  transition: 0.5s ease all;
+  margin: 0px 2px;
+}
+
+.category-list > div:hover, div.is-selected {
+  background: rgb(170,248,250);
+  background: linear-gradient(188deg, rgba(170,248,250,1) 0%, rgba(29,167,195,1) 98%);
+  color: #fff;
+  cursor: pointer;
+  transition: 0.5s ease all;
+}

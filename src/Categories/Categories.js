@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Category.css';
 
 class Categories extends Component {
   state = {

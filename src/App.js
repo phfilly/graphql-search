@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { gql } from 'apollo-boost';
 import { withApollo } from 'react-apollo';
-import ResultList from './Result';
-import Categories from './Categories';
+import ResultList from './Results/Result';
+import Categories from './Categories/Categories';
 
-import { ReactComponent as SearchIcon } from './icons/magnifying-glass.svg';
-import { ReactComponent as Loader } from './icons/loading-indicator.svg';
-import { ReactComponent as Clear } from './icons/clear.svg';
+import { ReactComponent as SearchIcon } from './Icons/magnifying-glass.svg';
+import { ReactComponent as Loader } from './Icons/loading-indicator.svg';
+import { ReactComponent as Clear } from './Icons/clear.svg';
 
 const GET_SEARCH_RESULTS = gql`
   query getSearchResults($filter: String!, $category: SearchEntity!) {
