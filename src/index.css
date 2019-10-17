@@ -163,6 +163,14 @@ q:before {
   fill: #7e7e7e;
 }
 
+svg.focus path {
+  fill: #000 !important;
+}
+
+#photo path {
+  opacity: 0.5;
+}
+
 #clear path {
   fill: #7e7e7e69
 }
@@ -170,8 +178,3 @@ q:before {
 #clear:hover {
   cursor: pointer;
 }
-
-/* ::-webkit-scrollbar {
-  -webkit-appearance: none;
-  width: 7px;
-} */

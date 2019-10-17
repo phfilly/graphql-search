@@ -8,15 +8,14 @@
 .category-list > div {
   background: #eee;
   border-radius: 5px;
-  padding: 8px;
+  padding: 8px 12px;
   font-size: 12px;
   transition: 0.5s ease all;
-  margin: 0px 2px;
+  margin: 0px 6px;
 }
 
 .category-list > div:hover, div.is-selected {
-  background: rgb(170,248,250);
-  background: linear-gradient(188deg, rgba(170,248,250,1) 0%, rgba(29,167,195,1) 98%);
+  background: rgba(29,167,195,1);
   color: #fff;
   cursor: pointer;
   transition: 0.5s ease all;

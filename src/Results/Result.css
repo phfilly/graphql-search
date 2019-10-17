@@ -7,7 +7,7 @@
   float: right;
   background: #eee;
   border-radius: 20px;
-  padding: 5px;
+  padding: 5px 7px;
   height: 35px;
 }
 
@@ -18,10 +18,10 @@
 }
 
 .placeholder-image > svg {
-  width: 25px;
+  width: 20px;
   height: 25px;
 }
 
-.sub-title, .category-list > div {
+.sub-title {
   color: #969696;
 }
