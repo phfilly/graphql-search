@@ -24,4 +24,5 @@
 
 .sub-title {
   color: #969696;
+  text-transform: capitalize;
 }

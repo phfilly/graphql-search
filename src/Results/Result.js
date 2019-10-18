@@ -9,6 +9,7 @@ class ResultList extends Component {
 
   render() {
     let image;
+    const category = this.props.item.href.split('/')[1];
     if (this.props.item.imageUrl) {
       image = (
         <img src={this.props.item.imageUrl} alt="item" className="image" />
@@ -29,7 +30,7 @@ class ResultList extends Component {
           </span>
           {image}
         </div>
-        <div className="sub-title">{this.props.category}</div>
+        <div className="sub-title">{category}</div>
       </div>
     );
   }

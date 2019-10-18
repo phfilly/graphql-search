@@ -1,24 +1,10 @@
 import React, { Component } from 'react';
 import './Category.css';
+import fullCategoryList from './list';
 
 class Categories extends Component {
   state = {
-    items: [
-      'Artist',
-      'Artwork',
-      'Article',
-      'City',
-      'Collection',
-      'Fair',
-      'Feature',
-      'Gallery',
-      'Gene',
-      'Institution',
-      'Profile',
-      'Sale',
-      'Show',
-      'Tag'
-    ]
+    items: fullCategoryList
   };
 
   render() {
@@ -26,11 +12,11 @@ class Categories extends Component {
       <div className="category-list">
         {this.state.items.map((item, i) => (
           <div
-            className={this.props.selected === item ? 'is-selected' : ''}
+            className={this.props.selected === item.value ? 'is-selected' : ''}
             key={i}
-            onClick={() => this.props.onClick(item)}
+            onClick={() => this.props.onClick(item.value)}
           >
-            {item}
+            {item.title}
           </div>
         ))}
       </div>

@@ -12,6 +12,7 @@
   font-size: 12px;
   transition: 0.5s ease all;
   margin: 0px 6px;
+  white-space: nowrap;
 }
 
 .category-list > div:hover, div.is-selected {

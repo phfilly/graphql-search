@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { withApollo } from 'react-apollo';
 import ResultList from './Results/Result';
 import Categories from './Categories/Categories';
-import GET_SEARCH_RESULTS from './Api/api';
+import GET_FILTERED_SEARCH_RESULTS from './Api/filteredApi';
+import GET_ALL_SEARCH_RESULTS from './Api/fullSearch';
 
 import { ReactComponent as SearchIcon } from './Icons/magnifying-glass.svg';
 import { ReactComponent as Loader } from './Icons/loading-indicator.svg';
@@ -11,7 +12,7 @@ import { ReactComponent as Clear } from './Icons/clear.svg';
 class App extends Component {
   state = {
     filter: '',
-    category: '',
+    category: undefined,
     results: [],
     isLoading: false,
     focus: false
@@ -19,10 +20,7 @@ class App extends Component {
 
   onChange($event) {
     this.setState({ filter: $event.target.value });
-
-    if (this.state.category && !this.state.isLoading) {
-      this.search(this.state.category);
-    }
+	setTimeout(() => this.search(this.state.category), 800);
   }
 
   onFocus() {
@@ -30,19 +28,36 @@ class App extends Component {
   }
 
   selectCategory = category => {
-    this.setState({ category: category });
-    this.search(category);
+	if (category === this.state.category) {
+		this.setState({ category: undefined });
+		this.search(undefined);
+	} else {
+		this.setState({ category: category });
+		this.search(category);
+	}
   };
 
-  search = async category => {
+  search = async (category) => {
     const { filter } = this.state;
     this.setState({ isLoading: true });
-    const result = await this.props.client.query({
-      query: GET_SEARCH_RESULTS,
-      variables: { filter: filter, category: category.toUpperCase() }
-    });
+    const result = await this.api(category, filter);
+    
     this.setState({ results: result.data.search.edges, isLoading: false });
   };
+  
+  api = (category, filter) => {
+	if (category) {
+		return this.props.client.query({
+		  query: GET_FILTERED_SEARCH_RESULTS,
+		  variables: { filter: filter, category: category.toUpperCase() }
+		});
+	} else {
+		return this.props.client.query({
+		  query: GET_ALL_SEARCH_RESULTS,
+		  variables: { filter: filter }
+		});
+	}
+  }
 
   clearSearch = () => {
     this.setState({ filter: '', focus: false });
@@ -93,7 +108,7 @@ class App extends Component {
             )}
 
             {results.map((result, i) => (
-              <ResultList key={i} item={result.node} category={category} />
+              <ResultList key={i} item={result.node} />
             ))}
           </div>
         </div>
