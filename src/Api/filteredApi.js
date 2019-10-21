@@ -6,7 +6,7 @@ const GET_FILTERED_SEARCH_RESULTS = gql`
       edges {
         node {
           displayLabel
-          imageUrl,
+          imageUrl
           href
         }
       }

@@ -20,7 +20,7 @@ class App extends Component {
 
   onChange($event) {
     this.setState({ filter: $event.target.value });
-	setTimeout(() => this.search(this.state.category), 800);
+    setTimeout(() => this.search(this.state.category), 800);
   }
 
   onFocus() {
@@ -28,36 +28,36 @@ class App extends Component {
   }
 
   selectCategory = category => {
-	if (category === this.state.category) {
-		this.setState({ category: undefined });
-		this.search(undefined);
-	} else {
-		this.setState({ category: category });
-		this.search(category);
-	}
+    if (category === this.state.category) {
+      this.setState({ category: undefined });
+      this.search(undefined);
+    } else {
+      this.setState({ category: category });
+      this.search(category);
+    }
   };
 
-  search = async (category) => {
+  search = async category => {
     const { filter } = this.state;
     this.setState({ isLoading: true });
     const result = await this.api(category, filter);
-    
+
     this.setState({ results: result.data.search.edges, isLoading: false });
   };
-  
+
   api = (category, filter) => {
-	if (category) {
-		return this.props.client.query({
-		  query: GET_FILTERED_SEARCH_RESULTS,
-		  variables: { filter: filter, category: category.toUpperCase() }
-		});
-	} else {
-		return this.props.client.query({
-		  query: GET_ALL_SEARCH_RESULTS,
-		  variables: { filter: filter }
-		});
-	}
-  }
+    if (category) {
+      return this.props.client.query({
+        query: GET_FILTERED_SEARCH_RESULTS,
+        variables: { filter: filter, category: category.toUpperCase() }
+      });
+    } else {
+      return this.props.client.query({
+        query: GET_ALL_SEARCH_RESULTS,
+        variables: { filter: filter }
+      });
+    }
+  };
 
   clearSearch = () => {
     this.setState({ filter: '', focus: false });
