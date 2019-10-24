@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ReactComponent as Placeholder } from '../Icons/photo.svg';
+import { ReactComponent as Placeholder } from '../icons/photo.svg';
 import './Result.css';
 
 class ResultList extends Component {

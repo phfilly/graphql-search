@@ -1,6 +1,6 @@
 .category-list {
   display: flex;
-  overflow: auto;
+  overflow: hidden;
   padding: 5px 0px;
   -webkit-mask-image: linear-gradient(to right, rgb(255, 255, 255) 70%, rgba(255, 255, 255, 0.25));
 }
@@ -16,7 +16,7 @@
 }
 
 .category-list > div:hover, div.is-selected {
-  background: rgba(29,167,195,1);
+  background: #33CCFF;
   color: #fff;
   cursor: pointer;
   transition: 0.5s ease all;

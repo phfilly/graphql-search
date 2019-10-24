@@ -133,7 +133,7 @@ q:before {
 .search-bar:focus-within {
   transition: 0.5s ease all;
   background: #fff;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0rem 0rem 5px 0px rgba(0, 0, 0, 0.1);
 }
 
 .search-bar-right-icon > div > svg {
