@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { withApollo } from 'react-apollo';
-import ResultList from '../results/Result';
-import Categories from '../categories/Categories';
-import GET_FILTERED_SEARCH_RESULTS from '../api/filteredApi';
-import GET_ALL_SEARCH_RESULTS from '../api/fullSearch';
+import ResultList from '../Results/Result';
+import Categories from '../Categories/Categories';
+import GET_FILTERED_SEARCH_RESULTS from '../Api/filteredApi';
+import GET_ALL_SEARCH_RESULTS from '../Api/fullSearch';
 
 import { ReactComponent as SearchIcon } from '../icons/magnifying-glass.svg';
 import { ReactComponent as Loader } from '../icons/loading-indicator.svg';
